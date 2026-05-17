@@ -28,5 +28,7 @@ jobs:
       - name: Build and push Docker image
         run: |
           az acr login --name ${{ secrets.ACR_LOGIN_SERVER }}
+          pwd
+          ls -la
           docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/birthday-containerapp:${{ env.BUILD_NUMBER }} .
           docker push ${{ secrets.ACR_LOGIN_SERVER }}/birthday-containerapp:${{ env.BUILD_NUMBER }}
